@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Beautiful Wedding</title>
+    <title>Poker Wedding</title>
+    <link rel="preload" as="image" href="img1.png">
+    <link rel="preload" as="image" href="img2.png">
+    <link rel="preload" as="image" href="img3.png">
+    <link rel="preload" as="image" href="img4.png">
+    <link rel="preload" as="image" href="img5.png">
+    <link rel="preload" as="image" href="img6.png">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Georgia', serif;
-            background: 
-                /* Animated floating hearts */
-                radial-gradient(circle at 20% 80%, rgba(255,105,180,0.6) 2%, transparent 2%),
-                radial-gradient(circle at 80% 20%, rgba(255,182,193,0.6) 1.5%, transparent 1.5%),
-                radial-gradient(circle at 40% 40%, rgba(255,20,147,0.4) 1%, transparent 1%),
-                /* Flower patterns */
-                radial-gradient(ellipse 20% 20% at 60% 90%, rgba(255,105,180,0.3) 1%, transparent 1%),
-                radial-gradient(ellipse 15% 15% at 10% 70%, rgba(255,182,193,0.3) 1%, transparent 1%),
-                radial-gradient(ellipse 25% 25% at 90% 30%, rgba(255,20,147,0.2) 1%, transparent 1%),
-                /* Base gradient */
-                linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
-            background-size: 100px 100px, 120px 120px, 150px 150px, 80px 80px, 90px 90px, 110px 110px;
-            background-repeat: repeat;
-            animation: heartFloat 20s linear infinite;
+            font-family: Georgia, serif;
+            background:
+                radial-gradient(circle at center, rgba(0, 0, 0, 0.6) 0%, transparent 60%),
+                linear-gradient(180deg, #0b5e2b 0%, #063d1b 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
+            color: white;
         }
 
-        @keyframes heartFloat {
-            0% { 
-                background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-            }
-            100% { 
-                background-position: 100px 100px, -120px 120px, -150px 150px, 80px -80px, -90px 90px, -110px -110px;
-            }
-        }
+        /* floating suits */
 
-        /* Floating hearts particles */
         .hearts-bg {
             position: fixed;
             top: 0;
@@ -49,23 +43,25 @@
 
         .heart-particle {
             position: absolute;
-            font-size: 20px;
-            color: #ff69b4;
+            font-size: 22px;
+            color: #ffd700;
             animation: floatHearts 8s infinite linear;
         }
 
         @keyframes floatHearts {
-            0% { 
-                transform: translateY(100vh) rotate(0deg) scale(0.5); 
-                opacity: 1; 
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.6);
+                opacity: 1;
             }
-            100% { 
-                transform: translateY(-100px) rotate(360deg) scale(1); 
-                opacity: 0; 
+
+            100% {
+                transform: translateY(-120px) rotate(360deg) scale(1);
+                opacity: 0;
             }
         }
 
-        /* Flower Animation */
+        /* container */
+
         .flower-container {
             position: fixed;
             top: 50%;
@@ -74,60 +70,180 @@
             width: 600px;
             height: 600px;
             z-index: 1000;
-            opacity: 1;
-            transition: opacity 1s ease 4s;
         }
 
-        .flower-center {
+        /* deck */
+
+        /* .deck-center {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, #fff 0%, #ffd700 70%, #ffed4e 100%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            z-index: 10;
-        }
-
-        .petal {
-            position: absolute;
-            width: 180px;
+            width: 130px;
             height: 180px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493, #c71585);
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
+            transform: translate(-50%, -50%);
+            border-radius: 12px;
+            border: 4px solid #111;
+            background:
+                repeating-linear-gradient(45deg,
+                    #8b0000,
+                    #8b0000 10px,
+                    #b30000 10px,
+                    #b30000 20px);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+        } */
+
+        .deck-center {
+            position: absolute;
             top: 50%;
             left: 50%;
-            transform-origin: center center;
+            width: 130px;
+            height: 180px;
+            transform: translate(-50%, -50%);
+            border-radius: 12px;
+
+            /* white card edge */
+            border: 6px solid #ffffff;
+
+            /* classic poker back pattern */
+            background:
+                radial-gradient(circle at center, #ffffff 1px, transparent 1px),
+                radial-gradient(circle at center, #ffffff 1px, transparent 1px),
+                linear-gradient(135deg, #b30000, #6b0000);
+
+            background-size: 12px 12px, 12px 12px, 100% 100%;
+            background-position: 0 0, 6px 6px, 0 0;
+
+            /* gold frame */
+            box-shadow:
+                0 0 25px rgba(255, 215, 0, 0.6),
+                0 10px 30px rgba(0, 0, 0, 0.8),
+                inset 0 0 10px rgba(0, 0, 0, 0.6);
+
+        }
+
+        /* deck thickness effect */
+        .deck-center::before,
+        .deck-center::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: inherit;
+            border: 6px solid #ffffff;
+            z-index: -1;
+        }
+
+        .deck-center::before {
+            transform: translateY(6px) scale(0.98);
+            opacity: 0.8;
+        }
+
+        .deck-center::after {
+            transform: translateY(12px) scale(0.96);
+            opacity: 0.6;
+        }
+
+        /* card animation */
+
+        .card {
+            position: absolute;
+            width: 140px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
             animation: spin 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
 
-        .petal:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg) scale(0.8); }
-        .petal:nth-child(2) { transform: translate(-50%, -50%) rotate(60deg) scale(0.8); }
-        .petal:nth-child(3) { transform: translate(-50%, -50%) rotate(120deg) scale(0.8); }
-        .petal:nth-child(4) { transform: translate(-50%, -50%) rotate(180deg) scale(0.8); }
-        .petal:nth-child(5) { transform: translate(-50%, -50%) rotate(240deg) scale(0.8); }
-        .petal:nth-child(6) { transform: translate(-50%, -50%) rotate(300deg) scale(0.8); }
+        .card img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        /* animation */
 
         @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(var(--start-rot)) scale(0.8); }
-            30% { transform: translate(-50%, -50%) rotate(var(--start-rot)) scale(1.1); }
-            100% { 
+
+            0% {
+                transform: translate(-50%, -50%) rotate(var(--start-rot)) scale(0.7);
+            }
+
+            30% {
+                transform: translate(-50%, -50%) rotate(var(--start-rot)) scale(1.1);
+            }
+
+            100% {
                 transform: translate(var(--final-x), var(--final-y)) rotate(var(--final-rot)) scale(1.2);
+            }
+
+        }
+
+        /* final card positions */
+
+        .card.final-1 {
+            --final-x: -70vw;
+            --final-y: -20vh;
+            --final-rot: 360deg;
+        }
+
+        .card.final-2 {
+            --final-x: -30vw;
+            --final-y: -60vh;
+            --final-rot: 420deg;
+        }
+
+        .card.final-3 {
+            --final-x: 40vw;
+            --final-y: -40vh;
+            --final-rot: 460deg;
+        }
+
+        .card.final-4 {
+            --final-x: 70vw;
+            --final-y: 0vh;
+            --final-rot: 500deg;
+        }
+
+        /* hero */
+
+        .hero {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffd700;
+            opacity: 0;
+            animation: fadeIn 2s ease 8s forwards;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
             }
         }
 
-        /* Final positions after distribution */
-        .petal.final-1 { --final-x: -70vw; --final-y: -20vh; --final-rot: 360deg; }
-        .petal.final-2 { --final-x: -40vw; --final-y: -50vh; --final-rot: 400deg; }
-        .petal.final-3 { --final-x: 0vw; --final-y: -70vh; --final-rot: 440deg; }
-        .petal.final-4 { --final-x: 40vw; --final-y: -50vh; --final-rot: 480deg; }
-        .petal.final-5 { --final-x: 70vw; --final-y: -20vh; --final-rot: 520deg; }
-        .petal.final-6 { --final-x: 30vw; --final-y: 20vh; --final-rot: 560deg; }
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
 
-        /* Gallery */
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        /* gallery */
+
         .gallery {
             padding: 5rem 2rem;
             max-width: 1400px;
@@ -143,195 +259,130 @@
         }
 
         @keyframes fadeInUp {
-            to { opacity: 1; transform: scale(1); }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .photo-frame {
-            position: relative;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 6px solid #ffd700;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             cursor: pointer;
             opacity: 0;
             transform: scale(0.5) rotate(180deg);
             animation: zoomIn 1s ease 6s forwards;
         }
 
-        .photo-frame:nth-child(1) { animation-delay: 6s; }
-        .photo-frame:nth-child(2) { animation-delay: 6.2s; }
-        .photo-frame:nth-child(3) { animation-delay: 6.4s; }
-        .photo-frame:nth-child(4) { animation-delay: 6.6s; }
-        .photo-frame:nth-child(5) { animation-delay: 6.8s; }
-        .photo-frame:nth-child(6) { animation-delay: 7s; }
-
-        @keyframes zoomIn {
-            to { opacity: 1; transform: scale(1) rotate(0deg); }
+        .photo-frame:nth-child(1) {
+            animation-delay: 6s;
         }
 
-        .photo-frame:hover {
-            transform: translateY(-20px) scale(1.05);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        .photo-frame:nth-child(2) {
+            animation-delay: 6.2s;
+        }
+
+        .photo-frame:nth-child(3) {
+            animation-delay: 6.4s;
+        }
+
+        .photo-frame:nth-child(4) {
+            animation-delay: 6.6s;
+        }
+
+        .photo-frame:nth-child(5) {
+            animation-delay: 6.8s;
+        }
+
+        .photo-frame:nth-child(6) {
+            animation-delay: 7s;
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
         }
 
         .photo-frame img {
             width: 100%;
             height: 720px;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-frame:hover img { transform: scale(1.1); }
-
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
-        }
-
-        .photo-frame:hover .photo-overlay { transform: translateY(0); }
-
-        .photo-caption { font-size: 1.2rem; font-style: italic; }
-
-        .hero {
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            opacity: 0;
-            animation: fadeIn 2s ease 8s forwards;
-            position: relative;
-            z-index: 10;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .hero h1 {
-            font-size: 4rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p { font-size: 1.5rem; }
-
-        @media (max-width: 768px) {
-            .flower-container { width: 400px; height: 400px; }
-            .petal { width: 120px; height: 120px; }
-            .flower-center { width: 80px; height: 80px; }
-            .petal.final-1 { --final-x: -50vw; --final-y: -10vh; }
-            .petal.final-2 { --final-x: -20vw; --final-y: -40vh; }
-            .petal.final-3 { --final-x: 10vw; --final-y: -50vh; }
-            .petal.final-4 { --final-x: 40vw; --final-y: -40vh; }
-            .petal.final-5 { --final-x: 50vw; --final-y: -10vh; }
-            .petal.final-6 { --final-x: 10vw; --final-y: 10vh; }
-            .hero h1 { font-size: 2.5rem; }
-            .gallery { grid-template-columns: 1fr; padding: 2rem 1rem; }
+            display: block;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
     </style>
 </head>
+
 <body>
-    <!-- Floating hearts background -->
+
     <div class="hearts-bg" id="heartsBg"></div>
 
-    <!-- Rotating Flower with Photos -->
     <div class="flower-container" id="flower">
-        <div class="flower-center"></div>
-        <div class="petal final-1" style="--start-rot: 0deg;">
-            <img src="img1.png" style="width:100%; height:100%; border-radius: inherit; object-fit:cover;">
+
+        <div class="deck-center"></div>
+
+        <div class="card final-1" style="--start-rot:0deg;">
+            <img src="https://deckofcardsapi.com/static/img/QH.png">
         </div>
-        <div class="petal final-2" style="--start-rot: 60deg;">
-            <img src="img2.png" style="width:100%; height:100%; border-radius: inherit; object-fit:cover;">
+
+        <div class="card final-2" style="--start-rot:90deg;">
+            <img src="https://deckofcardsapi.com/static/img/QD.png">
         </div>
-        <div class="petal final-3" style="--start-rot: 120deg;">
-            <img src="img3.png" style="width:100%; height:100%; border-radius: inherit; object-fit:cover;">
+
+        <div class="card final-3" style="--start-rot:180deg;">
+            <img src="https://deckofcardsapi.com/static/img/QC.png">
         </div>
-        <div class="petal final-4" style="--start-rot: 180deg;">
-            <img src="img4.png" style="width:100%; height:100%; border-radius: inherit; object-fit:cover;">
+
+        <div class="card final-4" style="--start-rot:270deg;">
+            <img src="https://deckofcardsapi.com/static/img/QS.png">
         </div>
-        <div class="petal final-5" style="--start-rot: 240deg;">
-            <img src="img5.png" style="width:100%; height:100%; border-radius: inherit; object-fit:cover;">
-        </div>
-        <div class="petal final-6" style="--start-rot: 300deg;">
-            <img src="img6.png" style="width:100%; height:100%; border-radius: inherit; object-fit:cover;">
-        </div>
+
     </div>
 
-    <!-- Hero Text (appears last) -->
     <section class="hero">
         <h1>Happy Wedding</h1>
         <p>Celebrating the love of Anusuya & Debanka</p>
     </section>
 
-    <!-- Final Gallery -->
     <section class="gallery">
-        <div class="photo-frame">
-            <img src="img1.png" alt="Wedding Photo 1">
-            <div class="photo-overlay">
-                <div class="photo-caption"></div>
-            </div>
-        </div>
-        <div class="photo-frame">
-            <img src="img2.png" alt="Wedding Photo 2">
-            <div class="photo-overlay">
-                <div class="photo-caption"></div>
-            </div>
-        </div>
-        <div class="photo-frame">
-            <img src="img3.png" alt="Wedding Photo 3">
-            <div class="photo-overlay">
-                <div class="photo-caption"></div>
-            </div>
-        </div>
-        <div class="photo-frame">
-            <img src="img4.png" alt="Wedding Photo 4">
-            <div class="photo-overlay">
-                <div class="photo-caption"></div>
-            </div>
-        </div>
-        <div class="photo-frame">
-            <img src="img5.png" alt="Wedding Photo 5">
-            <div class="photo-overlay">
-                <div class="photo-caption"></div>
-            </div>
-        </div>
-        <div class="photo-frame">
-            <img src="img6.png" alt="Wedding Photo 6">
-            <div class="photo-overlay">
-                <div class="photo-caption"></div>
-            </div>
-        </div>
+        <div class="photo-frame"><img src="img1.png" loading="eager" decoding="sync"></div>
+        <div class="photo-frame"><img src="img2.png" loading="eager" decoding="sync"></div>
+        <div class="photo-frame"><img src="img3.png" loading="eager" decoding="sync"></div>
+        <div class="photo-frame"><img src="img4.png" loading="eager" decoding="sync"></div>
+        <div class="photo-frame"><img src="img5.png" loading="eager" decoding="sync"></div>
+        <div class="photo-frame"><img src="img6.png" loading="eager" decoding="sync"></div>
     </section>
 
     <script>
-        // Animated gradient background with hearts & flowers
-        // Floating hearts particles
+
         function createHeart() {
+
             const heart = document.createElement('div');
             heart.className = 'heart-particle';
-            heart.innerHTML = ['💖','💕','💗','🌸','🌺','💝'][Math.floor(Math.random()*6)];
+
+            heart.innerHTML = ['♠', '♥', '♦', '♣', '🃏'][Math.floor(Math.random() * 5)];
+
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDuration = (Math.random() * 3 + 6) + 's';
             heart.style.animationDelay = Math.random() * 2 + 's';
-            document.getElementById('heartsBg').appendChild(heart);
+            // document.getElementById('heartsBg').appendChild(heart);
             setTimeout(() => heart.remove(), 9000);
+
         }
 
-        // Create continuous floating hearts and flowers
         setInterval(createHeart, 400);
 
-        // Hide flower container after animation
         setTimeout(() => {
             document.getElementById('flower').style.opacity = '0';
-            document.querySelector('.flower-container').style.pointerEvents = 'none';
-        }, 2000);
+        }, 5000);
+
     </script>
+
 </body>
+
 </html>
